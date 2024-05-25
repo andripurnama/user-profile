@@ -30,7 +30,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Log in" />
+    <Head title="Login" />
 
     <AuthenticationCard>
         <template #logo>
@@ -70,21 +70,19 @@ const submit = () => {
             </div>
 
             <div class="block mt-4">
-                <label class="flex items-center">
+                <label class="flex">
                     <Checkbox v-model:checked="form.remember" name="remember" />
-                    <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
+                    <span class="ms-2 text-sm text-gray-400 dark:text-gray-400">Remember me</span>
                 </label>
+                <p class="text-sm text-gray-600 mt-4">You don't have to login again the next time you come here</p>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('register')" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                    Don't have account? Register here
-                </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
+            <PrimaryButton class="mt-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                Login
+            </PrimaryButton>
+            <div class="flex items-center justify-center py-6">
+                <span class="text-white">Don't have account? </span> <Link :href="route('register')" class="text-blue-500 pl-3">Register</Link>
             </div>
+            
         </form>
     </AuthenticationCard>
 </template>
