@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -16,3 +15,4 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 });
+Route::get('/profile/complete', [ProfileController::class, 'completeProfile'])->name('complete.profile');
